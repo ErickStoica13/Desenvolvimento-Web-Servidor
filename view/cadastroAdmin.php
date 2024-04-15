@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="cadastro.css">
+<link rel="stylesheet" type="text/css" href="CSS/cadastro.css">
 <h1>Cadastro</h1>
          <form id="cadastro-form" action="index.php?acao=cadastrarAdm" method='POST'>
              <div>

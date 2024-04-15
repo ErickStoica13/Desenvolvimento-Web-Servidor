@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="cadastro.css">
+<link rel="stylesheet" type="text/css" href="CSS/cadastro.css">
 <h1>Cadastro</h1>
          <form id="cadastro-form" action="index.php?acao=cadastrar" method='POST'>
              <div>
@@ -47,3 +47,7 @@
              </div>
              <button type="submit">Cadastrar</button>
          </form>
+         
+<?php
+  include('template/footer.php');
+?>

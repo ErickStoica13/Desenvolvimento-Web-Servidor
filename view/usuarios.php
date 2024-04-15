@@ -1,5 +1,5 @@
 <?php
-require('controller/usuariosController.php');
+require('model/excluirUsuarioModel.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -7,7 +7,7 @@ require('controller/usuariosController.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Usuários</title>
-    <link rel="stylesheet" type="text/css" href="cadastro.css">
+    <link rel="stylesheet" type="text/css" href="CSS/cadastro.css">
     <style>
         table {
             margin: 0 auto; 
@@ -15,7 +15,7 @@ require('controller/usuariosController.php');
     </style>
 </head>
 <body>
-    <div class="container">
+    
         <h1>Lista de Usuários</h1>
         <table border="1">
             <thead>
@@ -45,6 +45,6 @@ require('controller/usuariosController.php');
                 ?>
             </tbody>
         </table>
-    </div>
+    
 </body>
 </html>

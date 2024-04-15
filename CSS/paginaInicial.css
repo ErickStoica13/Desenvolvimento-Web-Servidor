@@ -1,18 +1,8 @@
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
-*/
-/* 
-    Created on : 25 de jun. de 2023, 19:25:14
-    Author     : ep-ba
-*/
 header {
     overflow: hidden;
     background-color: #333;
     padding: 10px;
-    height: 40px;
     color: #fff;
-    
 }
 
 .menu {
@@ -20,14 +10,12 @@ header {
     justify-content: space-between;
     align-items: center;
     list-style-type: none;
-    
     margin: 0;
     padding: 0;    
 }
 .menu li {
     display: inline;
     margin-right: 10px;
-    margin-top: 10px;
 }
 
 .menu li a {
@@ -148,4 +136,27 @@ footer {
     padding: 10px;
     text-align: center;
 
+}
+#novidades{
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    color:#333;
+}
+#destaques .btn-comprar {
+    background-color: gold;
+    border: none;
+    cursor: pointer;
+    padding: 0.8rem 2rem;
+    border-radius: 9999px;
+    color: white;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+#destaques .btn-comprar:hover {
+    background-color: yellow;
 }

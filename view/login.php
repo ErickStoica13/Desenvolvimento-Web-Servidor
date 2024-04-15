@@ -1,5 +1,5 @@
 
-<link rel="stylesheet" type="text/css" href="cadastro.css">
+<link rel="stylesheet" type="text/css" href="CSS/cadastro.css">
 <h1>Login</h1>
 <form id="cadastro-form" action="index.php?acao=logar" method='POST'> 
     <div>

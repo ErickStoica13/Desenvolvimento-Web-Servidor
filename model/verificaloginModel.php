@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+// Verifica se o usuário já está logado
+if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) {
+    header('Location: index.php?acao=ja-logado');
+    exit;
+}
+
 $email = $_POST['email'] ?? '';
 $senha = $_POST['senha'] ?? '';
 
@@ -18,7 +24,7 @@ $adminLogado = false;
 foreach ($dados as $usuario) {
     if ($usuario['email'] === $email && $usuario['senha'] === $senha) {
         $encontrado = true;
-        // Verifica se o usuário é um administrador
+        // Verificando se o usuário é um administrador
         $adminLogado = $usuario['admin'] ?? false;
         break;
     }
@@ -27,7 +33,7 @@ foreach ($dados as $usuario) {
 if ($encontrado) {
     $_SESSION['logado'] = true;
     $_SESSION['email'] = $email;
-    $_SESSION['admin'] = $adminLogado; // Armazena o status de administrador na sessão
+    $_SESSION['admin'] = $adminLogado; // armazena o status de administrador na sessão
     header('Location: index.php?acao=logado');
     exit;
 } else {

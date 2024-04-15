@@ -40,18 +40,6 @@ button:hover{
 
 }
 
-footer {
-    background-color: #eee;
-    padding: 10px;
-    text-align: center;
 
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
 
 

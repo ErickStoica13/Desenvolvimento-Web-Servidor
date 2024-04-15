@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <?php
   include('template/header.php');
@@ -36,14 +35,27 @@ try {
         $mensagem = 'Usuário cadastrado com sucesso!';
     } else if ($acao == 'logado') {
         $mensagem = 'Login realizado com sucesso!';
-    }else if ($acao == 'cadastrarAdm') {
-        $mensagem = 'Novo Administrador Cadastrodo Com Sucesso!';
+    } else if ($acao == 'compra-finalizada') {
+        $mensagem = 'Compra realizada com Sucesso!';
+    } else if ($acao == 'erro-compra') {
+        $mensagem = 'Você precisa estar logado para finalizar a Compra!';
+    } else if ($acao == 'erro-campo-cartao') {
+        $mensagem = 'Cartão Inválido!';
+    } else if ($acao == 'erro-campo-cvv') {
+        $mensagem = 'CVV Inválido!';
+    } else if ($acao == 'erro-campo-data') {
+        $mensagem = 'Data Inválido!';
+    } else if ($acao == 'erro-item') {
+        $mensagem = 'Não há nenhum item no carrinho!';
+    } else if ($acao == 'ja-logado') {
+        $mensagem = 'Você já está logado!';
+    } else if ($acao == 'cadastrarAdm') {
+        $mensagem = 'Novo admin cadastrado com sucesso!';
     }
 } catch (Exception $e) {
     $mensagem = 'Ocorreu um erro ao processar sua solicitação.';
 }
 
-// exibindo mensagem como um alert
 if (!empty($mensagem)) {
     echo '<script>alert("' . $mensagem . '"); window.history.back();</script>';
 }
@@ -52,18 +64,20 @@ if (!empty($mensagem)) {
 <body>
   <?php
      if ($acao == 'cadastrar') {
-        require('controller/feedbackStore.php');
+        require('model/cadastroModel.php');
     } else if ($acao == 'logar') {
-        require('controller/verificalogin.php');
+        require('model/verificaloginModel.php');
     } else if ($acao == 'cadastrarAdm') {
-        require('controller/cadastroAdmController.php');
-    } else {
+        require('model/cadastroAdmModel.php');
+    } else if ($acao == 'confirmar-compra') {
+        require('model/finalizarcompraModel.php');
+    }  else {
         require('controller/pInicialController.php');
     }
   ?>
 </body>
 
 <?php
-//  include('template/footer.php');
+  //include('template/footer.php');
 ?>
 </html>

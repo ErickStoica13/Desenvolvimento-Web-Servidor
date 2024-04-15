@@ -1,6 +1,6 @@
 
 <?php
-require('controller/edicaoLogout.php');
+require('model/edicaoLogoutModel.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -8,10 +8,10 @@ require('controller/edicaoLogout.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil do Usuário</title>
-    <link rel="stylesheet" href="cadastro.css">
+    <link rel="stylesheet" href="CSS/cadastro.css">
 </head>
 <body>
-    <div class="container">
+    
         <h1>Perfil do Usuário</h1>
         <form action="" method="post">
             <div>

@@ -4,7 +4,7 @@ session_start();
 
 <head>
     <title>E-commerce</title>
-    <link rel="stylesheet" type="text/css" href="paginaInicial.css">
+    <link rel="stylesheet" type="text/css" href="CSS/paginaInicial.css">
 </head>
 <body>
     <header>
