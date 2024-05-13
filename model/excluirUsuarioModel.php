@@ -1,4 +1,6 @@
 <?php
+require("/xampp/htdocs/configure/dataBase.php");
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['excluirUsuario'])) {
     $index = $_POST['excluirUsuario'];
     // excluindo o usuário do arquivo dados.json
@@ -10,25 +12,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['excluirUsuario'])) {
     }
 }
 
-function excluirUsuario($index) {
-    //lendo o arquivo JSON
-    $dados_json = file_get_contents('dados/dados.json');
-    $usuarios = json_decode($dados_json, true);
+function excluirUsuario($index)
+{
+    require("/xampp/htdocs/configure/dataBase.php");
 
-    //verifica se o índice existe antes de tentar excluir
-    if (isset($usuarios[$index])) {
-        
-        unset($usuarios[$index]);
-
-        //reindexar o array para garantir que os índices sejam sequenciais
-        $usuarios = array_values($usuarios);
-
-        //salvando de volta no arquivo JSON
-        file_put_contents('dados/dados.json', json_encode($usuarios, JSON_PRETTY_PRINT));
-
+    $delete = $db->query("SELECT * FROM usuarios WHERE id = '$index'");
+    if ($delete->num_rows > 0) {
+        $db->query("DELETE FROM usuarios WHERE id = '$index'");
         return true;
     } else {
         return false;
     }
 }
-?>

@@ -1,10 +1,7 @@
-
 <!DOCTYPE html>
 <?php
-  include('template/header.php');
-?>
-
-<?php
+require('vendor/autoload.php');
+include('template/header.php');
 // Seção PHP para processar ações e exibir mensagens
 $acao = isset($_GET['acao']) ? $_GET['acao'] : 'index';
 $mensagem = '';
@@ -15,15 +12,15 @@ try {
         require('view/cadastro.php');
     } else if ($acao == 'erro-campo-texto') {
         $mensagem = 'Prencha os campos apenas com texto!';
-    }else if ($acao == 'erro-senha') {
+    } else if ($acao == 'erro-senha') {
         $mensagem = 'A senha deve conter mais de 8 digitos!';
-    }else if ($acao == 'erro-cep') {
+    } else if ($acao == 'erro-cep') {
         $mensagem = 'CEP invalido!';
-    }else if ($acao == 'erro-cpf') {
+    } else if ($acao == 'erro-cpf') {
         $mensagem = 'CPF inválido!, Por Favor Informar o CPF Correto';
-    }else if ($acao == 'idade-insuficiente') {
+    } else if ($acao == 'idade-insuficiente') {
         $mensagem = 'Idade Insufuciaente';
-    }else if ($acao == 'login-invalido') {
+    } else if ($acao == 'login-invalido') {
         $mensagem = 'Email ou senha inválidos!';
     } else if ($acao == 'login-requerido') {
         $mensagem = 'É necessário fazer login para acessar essa página!';
@@ -62,8 +59,8 @@ if (!empty($mensagem)) {
 ?>
 
 <body>
-  <?php
-     if ($acao == 'cadastrar') {
+    <?php
+    if ($acao == 'cadastrar') {
         require('model/cadastroModel.php');
     } else if ($acao == 'logar') {
         require('model/verificaloginModel.php');
@@ -71,13 +68,14 @@ if (!empty($mensagem)) {
         require('model/cadastroAdmModel.php');
     } else if ($acao == 'confirmar-compra') {
         require('model/finalizarcompraModel.php');
-    }  else {
+    } else {
         require('controller/pInicialController.php');
     }
-  ?>
+    ?>
 </body>
 
 <?php
-  //include('template/footer.php');
+//include('template/footer.php');
 ?>
+
 </html>
