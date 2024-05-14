@@ -28,9 +28,13 @@ Caso haja um problema no composer no cmd use 'composer dump'.
 
 # 7 - Base de dados:
 
-Para a Base de dados são necessarias duas tabelas, usuarios e livros, o nome da mase deve ser ```sql web_server_sistema
+Para a Base de dados são necessarias duas tabelas, usuarios e livros
+```sql 
+Nome da Base:
 
-````:
+web_server_sistema
+
+```
 
 ```sql
 
