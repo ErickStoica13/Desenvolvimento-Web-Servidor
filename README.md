@@ -30,7 +30,7 @@ Caso haja um problema no composer no cmd use 'composer dump'.
 
 Para a Base de dados são necessarias duas tabelas, usuarios e livros:
 
-```
+```sql
 
 CREATE TABLE livros (
 	id int(10) NOT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE livros (
 
 ```
 
-```
+```sql
 CREATE TABLE usuarios (
 	id int(10) NOT NULL,
 	nome varchar(100) NOT NULL,
