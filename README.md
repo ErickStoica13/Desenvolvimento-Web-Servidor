@@ -22,35 +22,43 @@ Ou, você pode abrir a pasta "htdocs" e excluir todo o conteúdo dentro dela ant
 
 # 6 - Intalar composer:
 
-Em [text](https://getcomposer.org/) faça a intalação do composer seguindo o passo a passo.
+Em [getcomposer.org](https://getcomposer.org/) faça a intalação do composer seguindo o passo a passo.
 Após a instalação no cmd coloque o comando 'composer install' para intalar as dependencias, 'composer up' atualiza as mesmas.
 Caso haja um problema no composer no cmd use 'composer dump'.
 
 # 7 - Base de dados:
 
 Para a Base de dados são necessarias duas tabelas, usuarios e livros:
-CREATE TABLE `livros` (
-`id` int(10) NOT NULL,
-`nome` varchar(100) NOT NULL,
-`imagem` varchar(100) NOT NULL,
-`preco` varchar(100) NOT NULL
+
+```
+
+CREATE TABLE livros (
+	id int(10) NOT NULL,
+	nome varchar(100) NOT NULL,
+	imagem varchar(100) NOT NULL,
+	preco varchar(100) NOT NULL
 );
 
-CREATE TABLE `usuarios` (
-`id` int(10) NOT NULL,
-`nome` varchar(100) NOT NULL,
-`email` varchar(100) NOT NULL,
-`senha` varchar(100) NOT NULL,
-`cpf` varchar(100) NOT NULL,
-`cep` varchar(100) NOT NULL,
-`rua` varchar(100) NOT NULL,
-`bairro` varchar(100) NOT NULL,
-`cidade` int(100) NOT NULL,
-`uf` varchar(100) NOT NULL,
-`numero` int(100) NOT NULL,
-`data` varchar(100) NOT NULL,
-`admin` tinyint(1) NOT NULL
+```
+
+```
+CREATE TABLE usuarios (
+	id int(10) NOT NULL,
+	nome varchar(100) NOT NULL,
+	email varchar(100) NOT NULL,
+	senha varchar(100) NOT NULL,
+	cpf varchar(100) NOT NULL,
+	cep varchar(100) NOT NULL,
+	rua varchar(100) NOT NULL,
+	bairro varchar(100) NOT NULL,
+	cidade int(100) NOT NULL,
+	uf varchar(100) NOT NULL,
+	numero int(100) NOT NULL,
+	data varchar(100) NOT NULL,
+	admin tinyint(1) NOT NULL
 );
+
+```
 
 # Esses passos devem garantir a instalação correta do software.
 
