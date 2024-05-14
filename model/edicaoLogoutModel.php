@@ -1,21 +1,17 @@
 <?php
 //session_start();
+require("/xampp/htdocs/configure/dataBase.php");
 
 
 if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
     header('Location: index.php?acao=login-requerido');
     exit;
 }
-
-$dados_json = file_get_contents('dados/dados.json');
-$usuarios = json_decode($dados_json, true);
-
-$usuario_logado = null;
-foreach ($usuarios as $usuario) {
-    if ($usuario['email'] === $_SESSION['email']) {
-        $usuario_logado = $usuario;
-        break;
-    }
+$email = $_SESSION['email'];
+$result = $db->query("SELECT * FROM usuarios WHERE email = '$email'");
+if ($result->num_rows > 0) {
+    $usuario = $result->fetch_array();
+    $usuario_logado = $usuario;
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['atualizar'])) {
@@ -32,22 +28,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['atualizar'])) {
     $usuario_logado['data'] = $_POST['data'];
     $usuario_logado['senha'] = $_POST['senha'];
 
-    //atualizando os dados no arquivo JSON
-    foreach ($usuarios as $chave => $usuario) {
-        if ($usuario['email'] === $_SESSION['email']) {
-            $usuarios[$chave] = $usuario_logado;
-            break;
-        }
-    }
-    
-    //gravando os dados no json
-    $arquivo = fopen('dados/dados.json', 'w');
-    fwrite($arquivo, json_encode($usuarios, JSON_PRETTY_PRINT));
-    fclose($arquivo);
+    $db->query("UPDATE usuarios SET 
+        nome = '$usuario_logado[nome]', 
+        email = '$usuario_logado[email]', 
+        cpf = '$usuario_logado[cpf]', 
+        cep = '$usuario_logado[cep]', 
+        rua = '$usuario_logado[rua]', 
+        bairro = '$usuario_logado[bairro]', 
+        cidade = '$usuario_logado[cidade]', 
+        uf = '$usuario_logado[uf]', 
+        numero = '$usuario_logado[numero]', 
+        data = '$usuario_logado[data]', 
+        senha = '$usuario_logado[senha]', 
+        admin = '$usuario_logado[admin]' 
+    WHERE email = '$email'");
 
     //redirecionar para a mesma página após a atualização
     header('Location: index.php?acao=atualizarDados');
-    
+
     exit;
 }
 
@@ -59,9 +57,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['acao']) && $_POST['ac
     //invalidar o cookie de sessão
     if (ini_get("session.use_cookies")) {
         $params = session_get_cookie_params();
-        setcookie(session_name(), '', time() - 42000,
-            $params["path"], $params["domain"],
-            $params["secure"], $params["httponly"]
+        setcookie(
+            session_name(),
+            '',
+            time() - 42000,
+            $params["path"],
+            $params["domain"],
+            $params["secure"],
+            $params["httponly"]
         );
     }
     //finalizar a sessão
@@ -70,4 +73,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['acao']) && $_POST['ac
     header('Location: index.php');
     exit;
 }
-?>

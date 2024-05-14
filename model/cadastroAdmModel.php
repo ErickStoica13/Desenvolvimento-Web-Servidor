@@ -1,4 +1,5 @@
 <?php
+require("/xampp/htdocs/configure/dataBase.php");
 
 $nome = $_POST['nome'] ?? '';
 $email = $_POST['email'] ?? '';
@@ -37,37 +38,30 @@ if (empty($nome) || empty($email) || empty($cpf) || empty($cep) || empty($rua) |
         $agora = new DateTime();
         $nascimento = new DateTime($data_nascimento);
         $idade = $agora->diff($nascimento);
-        return $idade->y; 
+        return $idade->y;
     }
 
     if (calcularIdade($data) < 18) {
         header('Location: index.php?acao=idade-insuficiente');
         exit;
     }
-
-   $dados_json = file_exists('dados/dados.json') ? file_get_contents('dados/dados.json') : '[]';
-   $usuarios = json_decode($dados_json, true);
-
-   $novo_usuario = [
-       'nome' => $nome,
-       'email' => $email,
-       'cpf' => $cpf,
-       'cep' => $cep,
-       'rua' => $rua,
-       'bairro' => $bairro,
-       'cidade' => $cidade,
-       'uf' => $uf,
-       'numero' => $numero,
-       'data' => $data,
-       'senha' => $senha,
-       'admin' => true, 
-       //unica diferença do cadastro comum, desculpa eu não deveria repetir código :> kkkkkkk
-   ];
-
-   $usuarios[] = $novo_usuario;
-
-   $arquivo = fopen('dados/dados.json', 'w');
-   fwrite($arquivo, json_encode($usuarios, JSON_PRETTY_PRINT));
-   fclose($arquivo);
+    $novo_usuario = [
+        'nome' => $nome,
+        'email' => $email,
+        'cpf' => $cpf,
+        'cep' => $cep,
+        'rua' => $rua,
+        'bairro' => $bairro,
+        'cidade' => $cidade,
+        'uf' => $uf,
+        'numero' => $numero,
+        'data' => $data,
+        'senha' => $senha,
+        'admin' => true,
+        //unica diferença do cadastro comum, desculpa eu não deveria repetir código :> kkkkkkk
+    ];
+    print_r($novo_usuario);
+    die;
+    $db->query("INSERT INTO usuarios (nome, email, cpf, cep, rua, bairro, cidade, uf, numero, data, senha, admin) 
+    VALUES ('$novo_usuario[nome]', '$novo_usuario[email]', '$novo_usuario[cpf]', '$novo_usuario[cep]', '$novo_usuario[rua]', '$novo_usuario[bairro]', '$novo_usuario[cidade]', '$novo_usuario[uf]', '$novo_usuario[numero]', '$novo_usuario[data]', '$novo_usuario[senha]', '$novo_usuario[admin]')");
 }
-?>

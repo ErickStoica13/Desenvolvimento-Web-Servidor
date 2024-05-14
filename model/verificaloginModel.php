@@ -1,5 +1,6 @@
 <?php
 session_start();
+require("/xampp/htdocs/configure/dataBase.php");
 
 // Verifica se o usuário já está logado
 if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) {
@@ -15,19 +16,15 @@ if (empty($email) || empty($senha)) {
     exit;
 }
 
-// Lendo o arquivo JSON
-$dados_json = file_get_contents('dados/dados.json');
-$dados = json_decode($dados_json, true);
+// Lendo o Base
+$result = $db->query("SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'");
 
 $encontrado = false;
 $adminLogado = false;
-foreach ($dados as $usuario) {
-    if ($usuario['email'] === $email && $usuario['senha'] === $senha) {
-        $encontrado = true;
-        // Verificando se o usuário é um administrador
-        $adminLogado = $usuario['admin'] ?? false;
-        break;
-    }
+if ($result->num_rows > 0) {
+    $usuario = $result->fetch_array();
+    $encontrado = true;
+    $adminLogado = $usuario['admin'] ?? false;
 }
 
 if ($encontrado) {
@@ -40,4 +37,3 @@ if ($encontrado) {
     header('Location: index.php?acao=login-invalido');
     exit;
 }
-?>

@@ -1,15 +1,11 @@
-<!DOCTYPE html>
 <?php
-require('vendor/autoload.php');
-include('template/header.php');
 // Seção PHP para processar ações e exibir mensagens
 $acao = isset($_GET['acao']) ? $_GET['acao'] : 'index';
-$mensagem = '';
 
+$mensagem = '';
 try {
     if ($acao == 'erro-campo') {
         $mensagem = 'Preencha todos os campos!';
-        require('view/cadastro.php');
     } else if ($acao == 'erro-campo-texto') {
         $mensagem = 'Prencha os campos apenas com texto!';
     } else if ($acao == 'erro-senha') {
@@ -28,6 +24,10 @@ try {
         $mensagem = 'Por favor, preencha todos os campos antes de enviar!';
     } else if ($acao == 'atualizarDados') {
         $mensagem = 'Dados atualizados com sucesso!';
+    } else if ($acao == 'cadastrar_livro_erro') {
+        $mensagem = 'Falha ao cadastrar!';
+    } else if ($acao == 'cadastrar_livro') {
+        $mensagem = 'Livro cadastrado com sucesso!';
     } else if ($acao == 'cadastrar') {
         $mensagem = 'Usuário cadastrado com sucesso!';
     } else if ($acao == 'logado') {
@@ -56,26 +56,3 @@ try {
 if (!empty($mensagem)) {
     echo '<script>alert("' . $mensagem . '"); window.history.back();</script>';
 }
-?>
-
-<body>
-    <?php
-    if ($acao == 'cadastrar') {
-        require('model/cadastroModel.php');
-    } else if ($acao == 'logar') {
-        require('model/verificaloginModel.php');
-    } else if ($acao == 'cadastrarAdm') {
-        require('model/cadastroAdmModel.php');
-    } else if ($acao == 'confirmar-compra') {
-        require('model/finalizarcompraModel.php');
-    } else {
-        require('controller/pInicialController.php');
-    }
-    ?>
-</body>
-
-<?php
-//include('template/footer.php');
-?>
-
-</html>
