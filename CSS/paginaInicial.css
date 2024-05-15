@@ -1,0 +1,162 @@
+header {
+    overflow: hidden;
+    background-color: #333;
+    padding: 10px;
+    color: #fff;
+}
+
+.menu {
+   display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;    
+}
+.menu li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.menu li a {
+    color: #fff;
+    text-decoration: none;
+}
+.login-container {
+    display: flex;
+    align-items: center;
+   
+}
+
+.input-label {
+    
+    margin-right: 5px;
+    
+}
+
+.input-field {
+    margin-right: 10px;
+}
+
+.login-button {
+    
+    margin-left: 10px;
+    background-color: darkblue;
+    border: none;
+    cursor: pointer;
+    padding: 0.3rem 2rem;
+    border-radius: 9999px;
+    color: white;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.2s;
+    display: block;
+    margin: 10px auto;
+    
+}
+
+.login-button:hover{
+    background-color: aqua;
+
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header-botton-side{
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    padding: 1rem;
+}
+.header-botton-side-left{
+    height: 100%;
+    flex-basis: 50%;
+    margin-left: 15rem;
+}
+.header-botton-side-left h2{
+    font-size: 3.2rem;
+    margin-bottom: 1.5rem;
+}
+.header-botton-side-left p{
+    line-height: 1.5rem;
+    margin-bottom: 1.5rem;
+
+}
+.header-botton-side-left button{
+    background-color: lightgreen;
+    border: none;
+    cursor: pointer;
+    padding: 0.8rem 3.8rem;
+    border-radius: 9999px;
+    color: white;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+.header-botton-side-left button:hover{
+    background-color: greenyellow;
+
+}
+.banner{
+    flex-basis: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 13rem;
+
+}
+.banner img{
+    width: 115%;
+    margin: 0;
+}
+#destaques h2 {
+    margin-bottom: 5px;
+}
+
+#destaques {
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    color:#333;
+
+}
+
+.produto {
+    text-align: center;
+}
+
+footer {
+    background-color: #eee;
+    padding: 10px;
+    text-align: center;
+
+}
+#novidades{
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    color:#333;
+}
+#destaques .btn-comprar {
+    background-color: gold;
+    border: none;
+    cursor: pointer;
+    padding: 0.8rem 2rem;
+    border-radius: 9999px;
+    color: white;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+#destaques .btn-comprar:hover {
+    background-color: yellow;
+}

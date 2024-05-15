@@ -1,0 +1,15 @@
+{
+    "name": "henri/htdocs",
+    "authors": [
+        {
+            "name": "Henrique M. S.",
+            "email": "henriquemsjr@gmail.com"
+        }
+    ],
+    "autoload": {
+        "classmap": ["./"]
+    },
+    "require": {
+        "pecee/simple-router": "^5.4"
+    }
+}

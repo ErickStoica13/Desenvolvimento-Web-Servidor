@@ -1,0 +1,90 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+button{
+    margin-left: 10px;
+    background-color: darkblue;
+    border: none;
+    cursor: pointer;
+    padding: 0.3rem 2rem;
+    border-radius: 9999px;
+    color: white;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.2s;
+    display: block;
+   
+}
+button:hover{
+    background-color: aqua;
+
+}
+
+h1 {
+    text-align: center;
+}
+
+#itens-carrinho {
+    margin-bottom: 20px;
+}
+
+.item-carrinho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.item-carrinho img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+
+#cupom-desconto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#cupom-input {
+    width: 200px;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+#aplicar-cupom {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#total-carrinho {
+    text-align: center;
+    padding-right: 20px;
+}
+
+#total-carrinho p {
+    margin-bottom: 5px;
+}
+
+#finalizar-compra {
+    padding: 5px 10px;
+    cursor: pointer;
+    
+}
+#finalizar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  
+}
+
